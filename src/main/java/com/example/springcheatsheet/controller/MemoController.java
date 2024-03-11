@@ -1,7 +1,7 @@
 package com.example.springcheatsheet.controller;
 
-import com.example.springcheatsheet.domain.Memo;
 import com.example.springcheatsheet.dto.response.MemoResponseDto;
+import com.example.springcheatsheet.service.MemoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,12 +20,16 @@ public class MemoController {
 //     * }
 //     */
 //
+    private final MemoService memoService;
+
+    public MemoController(MemoService memoService) {
+        this.memoService = memoService;
+    }
+
+
     @GetMapping("/title")
     public MemoResponseDto getMemo() {
-        MemoResponseDto memoResponseDto = new MemoResponseDto("1","오늘의 할일", "사용자1","오늘","보통");
-
-        return memoResponseDto;
-
+        return memoService.getMemo();
     }
 
 }

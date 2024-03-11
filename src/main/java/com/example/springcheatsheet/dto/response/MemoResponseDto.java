@@ -29,7 +29,7 @@ public class MemoResponseDto {
     }
 
     public String getTitle() {
-        return title;
+        return title; // 필드를 반환
     }
 
     public String getContent() {
@@ -37,12 +37,12 @@ public class MemoResponseDto {
     }
 
     public String getCreatedAt() {
-        String format = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy" + "년" + "MM" + "월" + "dd" + "일"));
-        return format;
+        String format = createdAt.format(DateTimeFormatter.ofPattern("yyyy년MM월dd일"));
+        return format;  // 디버깅 편해서
     }
 
     public String getUpdatedAt() {
-        String format = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy" + "년" + "MM" + "월" + "dd" + "일"));
+        String format = updatedAt.format(DateTimeFormatter.ofPattern("yyyy년MM월dd일"));
         return format;
     }
 

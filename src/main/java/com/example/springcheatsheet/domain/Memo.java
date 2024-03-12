@@ -1,8 +1,14 @@
 package com.example.springcheatsheet.domain;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.math.BigDecimal;
+import java.sql.Blob;
 import java.time.LocalDateTime;
 
 /**
@@ -17,27 +23,19 @@ import java.time.LocalDateTime;
  */
 
 
-
-@Getter
+@Entity
 public class Memo {
+
+    @Id @GeneratedValue
+    @Column(name = "memo_id")
+    private Long id;
+
     private String title;
     private String content;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private String author;
     private String category;
-    private String primary;
-
-    public Memo(String title, String content, String author, String category, String primary) {
-        this.title = title;
-        this.content = content;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-        this.author = author;
-        this.category = category;
-        this.primary = primary;
-    }
-
-
+    private String rank;
 
 }
